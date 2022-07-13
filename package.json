@@ -1,0 +1,15 @@
+{
+  "name": "pastebin-workspace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "backend": "yarn workspace @pastebin/backend"
+  },
+
+  "workspaces": [
+    "packages/**"
+  ]
+
+}

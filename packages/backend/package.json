@@ -1,0 +1,18 @@
+{
+  "name": "@pastebin/backend",
+  "version": "1.0.0",
+  "main": "src/main.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc && node dist/main.js",
+    "start:dev": "nodemon src/main.ts"
+  },
+  "dependencies": {
+    "fastify": "^4.2.1",
+    "prisma": "^4.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.19"
+  }
+}
