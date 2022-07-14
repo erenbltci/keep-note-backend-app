@@ -5,13 +5,17 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc && node dist/main.js",
-    "start:dev": "nodemon src/main.ts"
+    "start:dev": "nodemon src/main.ts",
+    "build": "tsc",
+    "prisma": "prisma generate --schema src/prisma/schema.prisma"
   },
   "dependencies": {
+    "@prisma/client": "^4.0.0",
     "fastify": "^4.2.1",
     "prisma": "^4.0.0"
   },
   "devDependencies": {
+    "@types/node": "^18.0.3",
     "dotenv": "^16.0.1",
     "nodemon": "^2.0.19"
   }

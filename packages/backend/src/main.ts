@@ -1,20 +1,30 @@
 import fastify from "fastify";
-import { ReplyDefault } from "fastify/types/utils";
-
+import connectDB, { prisma } from "./helpers/connectMongoDB";
 const app = fastify()
 
+require('dotenv').config()
 
-app.get('/', function (request, reply) {
 
+app.get('/', async function (request, reply) {
 
-    
-    reply.send({ hello: 'world' })
+  const newUser = await prisma.text.create({
+    data: {
+      text: "",
+      addedDate: new Date()
+
+    },
   })
+
+  const text = await prisma.text.count()  
+    reply.send({ allText: text })
+  })
+
+
 
 
 app.listen({ port: 3000 }, (error, adress) => {
     if(error) throw error
-
+    connectDB()
     console.log(`Project running on ${adress}`)
 
 })
