@@ -5,7 +5,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "backend": "yarn workspace @pastebin/backend"
+    "backend": "yarn workspace @pastebin/backend",
+    "frontend": "yarn workspace @pastebin/frontend"
   },
 
   "workspaces": [
