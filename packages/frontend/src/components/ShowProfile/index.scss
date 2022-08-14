@@ -1,0 +1,86 @@
+.container {
+
+    .note-title {
+
+        h1 {
+            border-radius: 10px;
+            background-color: aliceblue;
+            padding: 20px;
+        }
+    }
+
+
+    .note {
+        background-color: #57b35a;
+        padding: 10px;
+        align-items: center;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        margin: 2px 2px;
+        position: relative;
+        transition: box-shadow 0.5s ease, transform 0.5s ease;
+        width: 10rem;
+        float: left;
+
+        .note-info {
+            margin: 1px;
+        }
+
+        .note-preview {
+            align-items: flex-start;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 1px 0 1px 0;
+            width: 100%;
+        }
+
+        .note-button {
+            .delete {
+                background-color: #c22a0f;
+                /* Green */
+                border: none;
+                border-radius: 10px;
+                color: white;
+                padding: 5px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                min-width: 70px;
+                margin: 5px;
+            }
+
+            .delete:active {
+                background-color: #f32727;
+                box-shadow: 0 2px rgb(255, 255, 255);
+                transform: translateY(1px);
+            }
+
+            .view {
+                background-color: #05440796;
+                /* Green */
+                border: none;
+                border-radius: 10px;
+                color: white;
+                padding: 5px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                min-width: 70px;
+                margin: 5px;
+            }
+
+            .view:active {
+                background-color: #11b91696;
+                box-shadow: 0 2px rgb(255, 255, 255);
+                transform: translateY(1px);
+            }
+        }
+    }
+
+
+
+}
