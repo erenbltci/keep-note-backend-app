@@ -10,13 +10,14 @@
     "prisma": "prisma generate --schema src/prisma/schema.prisma"
   },
   "dependencies": {
-    "@prisma/client": "^4.0.0",
+    "@prisma/client": "4.2.1",
     "fastify": "^4.2.1",
     "prisma": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",
     "dotenv": "^16.0.1",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "prisma": "4.2.1"
   }
 }
