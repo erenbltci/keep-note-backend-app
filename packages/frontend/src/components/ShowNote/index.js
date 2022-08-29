@@ -1,21 +1,15 @@
-
-
 import React from 'react'
+import { FaRegEye, FaStar, FaCalendar } from 'react-icons/fa';
 
 import './index.scss'
 
-import { FaRegEye, FaStar, FaCalendar } from 'react-icons/fa';
-
-const Notes = (props) => {
+const Notes = () => {
 
   return (
     <div className='container'>
-
       <article className="note-title">
         <h1>Your Added Notes</h1>
-
       </article>
-
       <article className="note">
         <div className='note-info'>
           <span><FaRegEye /> 1</span>
@@ -31,8 +25,6 @@ const Notes = (props) => {
           <button className='delete'>Delete</button>
         </div>
       </article>
-
-
     </div>
   )
 }

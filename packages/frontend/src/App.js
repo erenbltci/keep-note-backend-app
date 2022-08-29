@@ -1,17 +1,14 @@
 import { useState } from 'react';
-import AddNote from './components/AddNote';
 
+import AddNote from './components/AddNote';
 import './App.scss'
-import Notes from './components/ShowProfile';
+import Notes from './components/ShowNote';
 
 function App() {
-
-  const [page, setPage] = useState('addNote')
-
+  const [page, setPage] = useState('addNote');
 
   return (
     <div className='container'>
-
 
       <div className='tab'>
         <div className='tab-box'>
@@ -24,7 +21,6 @@ function App() {
       <hr />
 
       {page === 'addNote' ? <AddNote /> : <Notes />}
-
 
     </div>
 

@@ -1,21 +1,17 @@
 
-
 import React, { useState, useEffect } from 'react'
 
 import './index.scss'
 
 const AddNote = (props) => {
 
-
-  const [ title, setTitle ] = useState(undefined)
-  const [ text, setText ] = useState(undefined)
-
+  const [title, setTitle] = useState();
+  const [text, setText] = useState();
 
   useEffect(() => {
-    // storing input name
-    localStorage.setItem("last-text-info", JSON.stringify({title, text}));
+    localStorage.setItem("last-text-info", JSON.stringify({ title, text }));
   }, [title, text]);
-  
+
   return (
     <div className='container'>
       <input type="text" placeholder='> Title Ex. mycode' onChange={(e) => setTitle(e.target.value)}></input>
@@ -28,9 +24,10 @@ const AddNote = (props) => {
         onChange={(e) => setText(e.target.value)}
       ></textarea>
 
-      <button className='save-button'>Save</button>
+      <button className='saveButton'>Save</button>
 
     </div>
+    
   )
 }
 

@@ -1,6 +1,6 @@
 .container {
 
-    .save-button {
+    .saveButton {
         border: none;
         color: white;
         padding: 20px;
@@ -10,11 +10,11 @@
         width: 100%;
     }
 
-    .save-button:active {
+    .saveButton:active {
         background-color: #2eb933;
         box-shadow: 0 5px #666;
-        transform: translateY(4px);   
-     }
+        transform: translateY(4px);
+    }
 
     hr {
         width: 95%;
@@ -52,5 +52,5 @@
         height: 1px;
         font-size: 13px;
         display: block;
-      }
+    }
 }
