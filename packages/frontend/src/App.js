@@ -1,18 +1,20 @@
-import { useState } from 'react';
 
-import AddNote from './components/AddNote';
 import './App.scss'
-import Notes from './components/ShowNote';
+import { Route, Routes } from 'react-router-dom'
+
 import Navbar from './components/NavBar';
+import HomePage from './pages/Home';
+import NotesPage from './pages/MyNotes';
 
 function App() {
-  const [page, setPage] = useState('addNote');
+  return (<>
+    <Navbar />
 
-  return (
-    <>
-      <Navbar />
-
-    </>
+    <Routes>
+      <Route path='/' element={< HomePage />} />
+      <Route path='/mynotes' element={< NotesPage />} />
+    </Routes>
+  </>
   );
 
 }

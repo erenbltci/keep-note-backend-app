@@ -1,17 +1,17 @@
 nav {
-    background-color: #4CAF50;
-    text-align: center;
-    width: 100%;
-    border-radius: 10px;
-    border-bottom-style: double;
-    height: auto;
-    margin-right: auto;
-    margin-left: auto;
-
-
-    li {
+    ul {
+        background-color: #4CAF50;
+        text-align: center;
+        width: 50%;
+        border-radius: 10px;
+        border-bottom-style: double;
+        height: 40px;
         list-style-type: none;
-        padding: 5px;
+        margin: auto;
+        padding: 0;
+         display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
     }
-
 }

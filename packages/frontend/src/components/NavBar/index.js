@@ -1,17 +1,16 @@
-
 import './index.scss'
+
+import { Link } from 'react-router-dom'
 
 function Navbar() {
 
     return (
         <nav>
             <ul>
-
-                <li>Notlarım</li>
-                <li>Notlarım</li>
+                <Link to='/'>Add Note</Link>
+                <Link to='/mynotes'>My Notes</Link>
             </ul>
         </nav>
-
     );
 
 }
