@@ -1,10 +1,13 @@
 import { NextFunction, Request, Response, Router } from 'express';
 
-import { createUser } from '../controller/user.controller';
+import { loginUser, registerUser } from '../controller/user.controller';
 
 const router = Router();
 
 // /user/create
-router.post('/create', createUser);
+router.post('/create', registerUser);
 
-export default router
+// /user/login
+router.post('/login', loginUser);
+
+export default router;
