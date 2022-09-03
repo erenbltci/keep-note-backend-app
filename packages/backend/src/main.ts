@@ -1,32 +1,17 @@
 require('dotenv').config();
-
-import { graphqlHTTP } from 'express-graphql';
-import { buildSchema } from 'graphql';
 import express from 'express';
-
+import logger from './helpers/logger';
 const app = express();
 
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
+import noteRouter from './routes/note';
+import userRouter from './routes/user';
 
-// The root provides a resolver function for each API endpoint
-const root = {
-  hello: () => {
-    return 'Hello world!';
-  },
-};
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true,
-  })
-);
+app.use('/note', noteRouter);
+app.use('/user', userRouter);
 
-app.listen(4000);
-console.log('Running a GraphQL API server at http://localhost:4000/graphql');
+app.listen(5000, () => {
+  logger.info(`Running on 5000 port. http://localhost:5000`);
+});
