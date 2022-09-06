@@ -5,7 +5,7 @@ import { loginUser, registerUser } from '../controller/user.controller';
 const router = Router();
 
 // /user/create
-router.post('/create', registerUser);
+router.post('/register', registerUser);
 
 // /user/login
 router.post('/login', loginUser);

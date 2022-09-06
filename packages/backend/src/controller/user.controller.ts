@@ -1,6 +1,7 @@
 import { NextFunction, Request, response, Response } from 'express';
 
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import prisma from '../helpers/prisma';
 
 const registerUser = async (
@@ -9,24 +10,37 @@ const registerUser = async (
   next: NextFunction
 ) => {
   try {
-    const { username, password } = req.body;
+    const { email, username, password } = req.body;
 
-    if (!username || !password) throw 'Username or password is not entered.';
+    if (!email || !username || !password)
+      throw 'Required values is not entered.';
 
     const hashedPasword = await bcrypt.hash(password, 10);
 
-    await prisma.user
+    const user = await prisma.user
       .create({
         data: {
+          email: email,
           username: username,
           password: hashedPasword,
         },
       })
       .catch(() => {
-        throw `Username "${username}" is must be uniqe.`;
+        throw `Username or email is already exist.`;
       });
 
-    res.status(200).send({ isError: false, message: 'User created.' });
+    const token = jwt.sign(req.body, process.env.JWT_SECRET_KEY as string, {
+      expiresIn: '1d',
+    });
+
+    res.status(200).send({
+      isError: false,
+      message: 'Registration is success.',
+      user: {
+        token: token,
+        ...user,
+      },
+    });
   } catch (error: unknown) {
     if (error instanceof Error)
       return res.status(400).send({ isError: true, message: error.message });
@@ -52,7 +66,18 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
 
     // TODO: JWT TRANSACTION
 
-    res.status(200).send({ isError: false, message: 'Auth successful.' });
+    const token = jwt.sign(req.body, process.env.JWT_SECRET_KEY as string, {
+      expiresIn: '1d',
+    });
+
+    res.status(200).send({
+      isError: false,
+      message: 'Login is success.',
+      user: {
+        token: token,
+        ...user,
+      },
+    });
   } catch (error: unknown) {
     if (error instanceof Error)
       return res.status(400).send({ isError: true, message: error.message });
