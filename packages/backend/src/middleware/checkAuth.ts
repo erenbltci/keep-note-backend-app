@@ -8,6 +8,9 @@ const checkAuth = (req: Request, res: Response, next: NextFunction) => {
     if(!token) throw 'Auth failed.'
 
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY as string);
+
+    res.locals.jwt = decodedToken;
+
     next();
   } catch (error) {
     return res.status(401).send({

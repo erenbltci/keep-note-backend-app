@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response, Router } from 'express';
+import { Router } from 'express';
 
-import { loginUser, registerUser } from '../controller/user.controller';
+import { loginUser, registerUser } from '../controller/auth.controller';
 
 const router = Router();
 
