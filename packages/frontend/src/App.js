@@ -7,14 +7,9 @@ import HomePage from './pages/Home';
 import NotesPage from './pages/MyNotes';
 
 function App() {
-  return (<>
-    <Navbar />
-
-    <Routes>
-      <Route path='/' element={< HomePage />} />
-      <Route path='/mynotes' element={< NotesPage />} />
-    </Routes>
-  </>
+  return (
+    <>
+    </>
   );
 
 }

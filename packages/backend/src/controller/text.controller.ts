@@ -2,7 +2,7 @@ import { NextFunction, Response, Request } from 'express';
 import prisma from '../helpers/prisma';
 import redis from '../helpers/redisClient';
 
-const REDIS_CACHE_DURATION = 60 * 4 * 1000;
+const REDIS_CACHE_DURATION = 60 * 5;
 
 const addNote = async (req: Request, res: Response, next: NextFunction) => {
   const { title, text } = req.body;
@@ -21,6 +21,19 @@ const addNote = async (req: Request, res: Response, next: NextFunction) => {
     });
 
     if (!user) throw 'There was a problem with the authentication.';
+
+    const isExist = await prisma.text
+    .findFirstOrThrow({
+      where: {
+        title: title,
+        author: {
+          username: user.username,
+        },
+      },
+    })
+    
+
+    if(isExist) throw 'This title already exist.'
 
     const textInfo = await prisma.text.create({
       data: {
@@ -100,7 +113,7 @@ const getNote = async (req: Request, res: Response, next: NextFunction) => {
           throw 'Requested text is not existing.';
         });
 
-      redis.set(`${user}:${title}`, `${JSON.stringify(textInfo)}`, 'EX', 300);
+      redis.set(`${user}:${title}`, `${JSON.stringify(textInfo)}`, 'EX', REDIS_CACHE_DURATION);
     }
 
     return res
