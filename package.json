@@ -8,9 +8,7 @@
     "backend": "yarn workspace @pastebin/backend",
     "frontend": "yarn workspace @pastebin/frontend"
   },
-
   "workspaces": [
     "packages/**"
   ]
-
 }
